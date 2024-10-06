@@ -25,7 +25,7 @@ export const createNewUser = async (req: any, res: any, next: any) => {
 		res.json({ token, user, message: "User created successfully!" });
 		res.status(201);
 	} catch (e) {
-		e.type = "input";
+		// e.type = "input";
 		next(e);
 	}
 };
@@ -74,12 +74,12 @@ export const deleteUser = async (req: any, res: any, next: any) => {
 		});
 
 		// delete the user
-		if (userId !== req.user.id) {
-			res.status(403);
-			res.json({
-				message: "You don't have permission to delete this user!",
-			});
-		}
+		// if (userId !== req.user.id) {
+		// 	res.status(403);
+		// 	res.json({
+		// 		message: "You don't have permission to delete this user!",
+		// 	});
+		// }
 
 		const deleted: any = await prisma.user.delete({
 			where: {
