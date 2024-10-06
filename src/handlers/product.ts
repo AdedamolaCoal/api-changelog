@@ -25,7 +25,7 @@ export const getProductById = async (req: any, res: any, next: any) => {
 
 		const product: any = await prisma.product.findFirst({
 			where: {
-				id: id,
+				id,
 				belongsToId: req.user.id,
 			},
 		});
